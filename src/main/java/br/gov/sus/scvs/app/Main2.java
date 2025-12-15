@@ -5,6 +5,7 @@ import br.gov.sus.scvs.dominio.profissionais.Enfermeiro;
 import br.gov.sus.scvs.dominio.profissionais.TecnicoEnfermagem;
 import br.gov.sus.scvs.dominio.unidades.PostoVolante;
 import br.gov.sus.scvs.dominio.unidades.Ubs;
+import br.gov.sus.scvs.dominio.vacina.EstoqueVacinas;
 import br.gov.sus.scvs.dominio.vacina.Vacina;
 
 public class Main2 {
@@ -24,7 +25,9 @@ public class Main2 {
 
         // Cadastrando nossas vacinas
         Vacina coronavac = new Vacina("CoronaVac", "Sinovac", "Para COVID-19", 2);
-        Vacina pfizer = new Vacina("Prevencao")
+        Vacina gripe = new Vacina("Influenza", "Butantan", "Para gripe", 1);
+
+        EstoqueVacinas estoque = new EstoqueVacinas();
 
     }
 }

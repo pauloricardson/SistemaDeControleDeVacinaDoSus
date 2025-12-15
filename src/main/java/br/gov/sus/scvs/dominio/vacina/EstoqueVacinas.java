@@ -1,17 +1,14 @@
 package br.gov.sus.scvs.dominio.vacina;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class EstoqueVacinas implements IEstoqueManager {
-    private Map<Vacina, Integer> estoque;
+
+    private List<LoteVacina> lotes;
 
     public EstoqueVacinas() {
-
-        this.estoque = new HashMap<>();
+        this.lotes = new ArrayList<>();
     }
 
     @Override
@@ -21,8 +18,7 @@ public class EstoqueVacinas implements IEstoqueManager {
         if (lote.isExpirado())
             throw new IllegalArgumentException("Lote expirado não pode ser adicionado");
 
-        estoque.put(lote.getVacina(),
-                estoque.getOrDefault(lote.getVacina(), 0) + lote.getQuantidade());
+        lotes.add(lote);
     }
 
     @Override
@@ -32,25 +28,56 @@ public class EstoqueVacinas implements IEstoqueManager {
         if (quantidade <= 0)
             throw new IllegalArgumentException("Quantidade deve ser positiva");
 
-        int estoqueAtual = estoque.getOrDefault(vacina, 0);
+        int estoqueAtual = verificarQuantidade(vacina);
         if (estoqueAtual < quantidade) {
             throw new IllegalStateException("Estoque insuficiente para " + vacina.getNome());
         }
-        estoque.put(vacina, estoqueAtual - quantidade);
+
+        int restante = quantidade;
+
+        for (LoteVacina lote : lotes) {
+            if (lote.getVacina().equals(vacina) && !lote.isExpirado()) {
+                int qtdLote = lote.getQuantidade();
+
+                if (qtdLote >= restante) {
+                    lote.setQuantidade(qtdLote - restante);
+                    break;
+                } else {
+                    lote.setQuantidade(0);
+                    restante -= qtdLote;
+                }
+            }
+        }
     }
 
     @Override
     public int verificarQuantidade(Vacina vacina) {
+        if (vacina == null)
+            return 0;
 
-        return estoque.getOrDefault(vacina, 0);
+        int total = 0;
+        for (LoteVacina lote : lotes) {
+            if (lote.getVacina().equals(vacina) && !lote.isExpirado()) {
+                total += lote.getQuantidade();
+            }
+        }
+        return total;
     }
 
     @Override
     public List<Vacina> listarVacinasDisponiveis() {
-        return estoque.entrySet().stream()
-                .filter(e -> e.getValue() > 0)
-                .map(Map.Entry::getKey)
-                .collect(Collectors.toList());
+        List<Vacina> vacinasDisponiveis = new ArrayList<>();
+
+        for (LoteVacina lote : lotes) {
+            if (lote.getQuantidade() > 0 && !lote.isExpirado()) {
+                Vacina vacina = lote.getVacina();
+                if (!vacinasDisponiveis.contains(vacina)) {
+                    vacinasDisponiveis.add(vacina);
+                }
+            }
+        }
+
+        return vacinasDisponiveis;
     }
 
     public List<LoteVacina> listarLotesProximosVencer(int diasAntecedencia) {
