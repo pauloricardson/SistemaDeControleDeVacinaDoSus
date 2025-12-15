@@ -31,7 +31,6 @@ public class AplicacaoVacina {
         this.registrada = false;
     }
 
-    // Getters
     public Cidadao getCidadao() { return cidadao; }
     public Vacina getVacina() { return vacina; }
     public int getDose() { return dose; }
@@ -41,7 +40,6 @@ public class AplicacaoVacina {
     public LocalDateTime getDataHoraAplicacao() { return dataHoraAplicacao; }
     public boolean isRegistrada() { return registrada; }
 
-    // Setters com validação
     private void setCidadao(Cidadao cidadao) {
         if (cidadao == null) throw new IllegalArgumentException("Cidadão não pode ser nulo");
         this.cidadao = cidadao;

@@ -11,36 +11,36 @@ public class NotificacaoVacina implements INotificacaoEstoque, INotificacaoAgend
 
     @Override
     public void notificarVacinaProximaValidade(LoteVacina lote) {
-        System.out.println("⚠️ ALERTA: Vacina lote " + lote.getNumeroLote() +
+        System.out.println("ALERTA: Vacina lote " + lote.getNumeroLote() +
                 " (" + lote.getVacina().getNome() + ") próxima da validade.");
     }
 
     @Override
     public void notificarEstoqueBaixo(Vacina vacina) {
-        System.out.println("⚠️ ALERTA: Estoque baixo para " + vacina.getNome() +
+        System.out.println("ALERTA: Estoque baixo para " + vacina.getNome() +
                 " - Reabastecimento necessário.");
     }
 
     @Override
     public void notificarAgendamentoConfirmado(Agendamento agendamento) {
-        System.out.println("✅ Agendamento confirmado: " + agendamento.getCidadao().getNome() +
+        System.out.println("Agendamento confirmado: " + agendamento.getCidadao().getNome() +
                 " - " + agendamento.getDataAgendada() + " " + agendamento.getHorario());
     }
 
     @Override
     public void notificarLembreteAgendamento(Agendamento agendamento) {
-        System.out.println("🔔 Lembrete: Agendamento amanhã para " + agendamento.getCidadao().getNome());
+        System.out.println("Lembrete: Agendamento amanhã para " + agendamento.getCidadao().getNome());
     }
 
     @Override
     public void notificarAgendamentosEmMassa(List<Agendamento> agendamentos) {
-        System.out.println("📢 Notificação em massa: " + agendamentos.size() +
+        System.out.println("Notificação em massa: " + agendamentos.size() +
                 " agendamentos confirmados para a campanha.");
     }
 
     @Override
     public void notificarCampanhaIniciada(CampanhaVacinacao campanha) {
-        System.out.println("🚀 Campanha iniciada: " + campanha.getNome() +
+        System.out.println("Campanha iniciada: " + campanha.getNome() +
                 " - Público: " + campanha.getPublicoAlvo());
     }
 }

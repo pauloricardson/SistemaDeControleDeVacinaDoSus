@@ -14,14 +14,12 @@ public class Vacina implements IVacinaValidador {
         this.ativa = true;
     }
 
-    // Getters
     public String getNome() { return nome; }
     public String getFabricante() { return fabricante; }
     public String getIndicacao() { return indicacao; }
     public int getDosesNecessarias() { return dosesNecessarias; }
     public boolean isAtiva() { return ativa; }
 
-    // Setters
     public void setNome(String nome) {
         if (nome == null || nome.trim().isEmpty())
             throw new IllegalArgumentException("Nome da vacina não pode ser vazio");

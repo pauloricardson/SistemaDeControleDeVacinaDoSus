@@ -13,7 +13,7 @@ public class RelatorioVacinas implements IRelatorioAplicacoes, IRelatorioCobertu
 
     @Override
     public String gerarRelatorioTotalAplicadas() {
-        return "📊 RELATÓRIO DE APLICAÇÕES\n" +
+        return "RELATÓRIO DE APLICAÇÕES\n" +
                 "Total de aplicações: " + aplicacoes.size() + "\n" +
                 "Período: " + getPeriodoRelatorio();
     }
@@ -27,7 +27,7 @@ public class RelatorioVacinas implements IRelatorioAplicacoes, IRelatorioCobertu
 
         double percentual = total > 0 ? (completas * 100.0 / total) : 0;
 
-        return "📈 EFICÁCIA VACINAL\n" +
+        return "EFICÁCIA VACINAL\n" +
                 "Aplicações totais: " + total + "\n" +
                 "Ciclos completos: " + completas + "\n" +
                 "Percentual completo: " + String.format("%.2f%%", percentual);
@@ -35,8 +35,7 @@ public class RelatorioVacinas implements IRelatorioAplicacoes, IRelatorioCobertu
 
     @Override
     public String gerarRelatorioCidadãosNaoVacinados() {
-        // Implementação simplificada
-        return "👥 CIDADÃOS NÃO VACINADOS\n" +
+        return "CIDADÃOS NÃO VACINADOS\n" +
                 "Relatório em construção...";
     }
 
@@ -47,19 +46,19 @@ public class RelatorioVacinas implements IRelatorioAplicacoes, IRelatorioCobertu
 
     @Override
     public String gerarRelatorioCoberturaPorRegiao() {
-        return "🗺️ COBERTURA POR REGIÃO\n" +
+        return "COBERTURA POR REGIÃO\n" +
                 "Relatório em construção...";
     }
 
     @Override
     public String gerarRelatorioConsumoPorUnidade() {
-        return "🏥 CONSUMO POR UNIDADE\n" +
+        return "CONSUMO POR UNIDADE\n" +
                 "Relatório em construção...";
     }
 
     @Override
     public String gerarRelatorioLotesVencidos() {
-        return "⚠️ LOTES VENCIDOS\n" +
+        return "LOTES VENCIDOS\n" +
                 "Relatório em construção...";
     }
 

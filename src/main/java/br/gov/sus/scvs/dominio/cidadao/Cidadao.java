@@ -21,14 +21,12 @@ public class Cidadao implements IHistoricoVacinal {
         this.endereco = endereco;
     }
 
-    // Getters
     public String getNome() { return nome; }
     public String getCpf() { return cpf; }
     public String getDataNascimento() { return dataNascimento; }
     public String getEndereco() { return endereco; }
     public HistoricoVacinal getHistoricoVacinal() { return historicoVacinal; }
 
-    // Setters com validação
     public void setNome(String nome) {
         if (nome == null || nome.trim().isEmpty())
             throw new IllegalArgumentException("Nome não pode ser vazio");
@@ -41,7 +39,6 @@ public class Cidadao implements IHistoricoVacinal {
         this.cpf = cpf;
     }
 
-    // Implementação da interface IHistoricoVacinal
     @Override
     public void adicionarAplicacao(AplicacaoVacina app) {
         historicoVacinal.adicionarAplicacao(app);

@@ -26,7 +26,6 @@ public class CampanhaVacinacao {
         this.ativa = false;
     }
 
-    // Getters e Setters
     public String getNome() { return nome; }
     public String getPublicoAlvo() { return publicoAlvo; }
     public LocalDate getDataInicio() { return dataInicio; }
