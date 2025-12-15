@@ -7,9 +7,10 @@ public class Vacina implements IVacinaValidador {
     private int dosesNecessarias;
     private boolean ativa;
 
-    public Vacina(String nome, String fabricante, int dosesNecessarias) {
+    public Vacina(String nome, String fabricante, String indicacao, int dosesNecessarias) {
         setNome(nome);
         setFabricante(fabricante);
+        setIndicacao(indicacao);
         setDosesNecessarias(dosesNecessarias);
         this.ativa = true;
     }
