@@ -9,6 +9,10 @@ public class PostoVolante extends UnidadeSaude {
         this.localizacaoAtual = localizacaoAtual;
     }
 
+    public String getLocalizacaoAtual() {
+        return this.localizacaoAtual;
+    }
+
     public void setLocalizacaoAtual(String localizacao) {
         if(localizacao == null || localizacao.isEmpty())
             throw new IllegalStateException("Localização não pode ser vazio");
