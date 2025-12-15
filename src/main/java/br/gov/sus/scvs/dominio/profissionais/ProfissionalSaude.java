@@ -1,6 +1,5 @@
 package br.gov.sus.scvs.dominio.profissionais;
 
-// Classe base abstrata
 public abstract class ProfissionalSaude implements IAplicadorVacina {
     private String nome;
     private String registro;

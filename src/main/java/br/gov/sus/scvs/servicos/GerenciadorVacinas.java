@@ -13,7 +13,6 @@ public class GerenciadorVacinas {
     private INotificacaoEstoque notificacaoEstoque;
     private List<AplicacaoVacina> aplicacoes;
 
-    // DIP: Dependemos de abstrações
     public GerenciadorVacinas(IRelatorioAplicacoes relatorioAplicacoes, INotificacaoEstoque notificacaoEstoque) {
         this.vacinas = new ArrayList<>();
         this.aplicacoes = new ArrayList<>();

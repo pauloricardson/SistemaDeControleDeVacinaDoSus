@@ -18,7 +18,6 @@ public class LoteVacina {
         setQuantidade(quantidade);
     }
 
-    // Getters e Setters com validação
     public String getNumeroLote() { return numeroLote; }
     public Vacina getVacina() { return vacina; }
     public int getQuantidade() { return quantidade; }

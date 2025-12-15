@@ -1,4 +1,3 @@
-// HistoricoVacinal.java - SRP: Gerencia apenas histórico vacinal
 package br.gov.sus.scvs.dominio.cidadao;
 
 

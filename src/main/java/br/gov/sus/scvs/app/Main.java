@@ -32,14 +32,9 @@ public class Main {
         System.out.println("SISTEMA DE VACINACAO - INICIALIZANDO");
         System.out.println("============================================\n");
 
-        // ============================================
-        // 1. CRIACAO DOS OBJETOS
-        // ============================================
-
         System.out.println("1. CRIACAO DOS OBJETOS");
         System.out.println("----------------------");
 
-        // 1.1 Criando Cidadaos
         System.out.println("\n1.1 CIDADAOS:");
         Cidadao joao = new Cidadao("Joao Silva", "12345678901", "15/03/1980", "Rua A, 123");
         Cidadao maria = new Cidadao("Maria Santos", "98765432100", "22/07/1995", "Av. B, 456");
@@ -49,7 +44,6 @@ public class Main {
         System.out.println("Cidadao criado: " + maria.getNome() + " - CPF: " + maria.getCpf());
         System.out.println("Cidadao criado: " + pedro.getNome() + " - CPF: " + pedro.getCpf());
 
-        // 1.2 Criando Profissionais de Saude
         System.out.println("\n1.2 PROFISSIONAIS DE SAUDE:");
         Medico draAna = new Medico("Dra. Ana Mendes", "CRM-SP12345");
         TecnicoEnfermagem tecnicoCarlos = new TecnicoEnfermagem("Carlos Oliveira", "COREN-SP54321", true);
@@ -59,7 +53,6 @@ public class Main {
         System.out.println("Tecnico criado: " + tecnicoCarlos.getNome() + " - Registro: " + tecnicoCarlos.getRegistro());
         System.out.println("Enfermeira criada: " + enfermeiraBeatriz.getNome() + " - Registro: " + enfermeiraBeatriz.getRegistro());
 
-        // 1.3 Criando Unidades de Saude
         System.out.println("\n1.3 UNIDADES DE SAUDE:");
         Ubs ubsCentro = new Ubs("UBS Centro");
         ubsCentro.setEndereco("Av. Central, 100");
@@ -77,7 +70,6 @@ public class Main {
         System.out.println("Hospital criado: " + hospitalMunicipal.getNome());
         System.out.println("Posto Volante criado: " + postoMovel.getNome());
 
-        // 1.4 Criando Vacinas
         System.out.println("\n1.4 VACINAS:");
         Vacina coronavac = new Vacina("CoronaVac", "Sinovac", 2);
         coronavac.setIndicacao("Prevencao COVID-19");
@@ -92,16 +84,11 @@ public class Main {
         System.out.println("Vacina criada: " + pfizer.getNome());
         System.out.println("Vacina criada: " + influenza.getNome());
 
-        // ============================================
-        // 2. GERENCIAMENTO DE ESTOQUE
-        // ============================================
-
         System.out.println("\n2. GERENCIAMENTO DE ESTOQUE");
         System.out.println("---------------------------");
 
         EstoqueVacinas estoque = new EstoqueVacinas();
 
-        // Criando lotes
         LoteVacina loteCoronavac1 = new LoteVacina(
                 "LOTE-CV-2023-001",
                 coronavac,
@@ -126,7 +113,6 @@ public class Main {
                 300
         );
 
-        // Adicionando ao estoque
         estoque.adicionarLote(loteCoronavac1);
         estoque.adicionarLote(lotePfizer1);
         estoque.adicionarLote(loteInfluenza1);
@@ -136,16 +122,11 @@ public class Main {
         System.out.println("- Pfizer: " + estoque.verificarQuantidade(pfizer) + " doses");
         System.out.println("- Influenza: " + estoque.verificarQuantidade(influenza) + " doses");
 
-        // ============================================
-        // 3. APLICACOES DE VACINA
-        // ============================================
-
         System.out.println("\n3. APLICACOES DE VACINA");
         System.out.println("-----------------------");
 
         List<AplicacaoVacina> todasAplicacoes = new ArrayList<>();
 
-        // 3.1 Primeira aplicacao - Joao toma CoronaVac
         System.out.println("\n3.1 APLICACAO 1 - Joao (CoronaVac - Dose 1):");
         AplicacaoVacina aplicacao1 = new AplicacaoVacina(
                 joao,
@@ -164,7 +145,6 @@ public class Main {
             System.out.println("Estoque atual: CoronaVac - " + estoque.verificarQuantidade(coronavac) + " doses");
         }
 
-        // 3.2 Segunda aplicacao - Maria toma Pfizer
         System.out.println("\n3.2 APLICACAO 2 - Maria (Pfizer - Dose 1):");
         AplicacaoVacina aplicacao2 = new AplicacaoVacina(
                 maria,
@@ -183,7 +163,6 @@ public class Main {
             System.out.println("Estoque atual: Pfizer - " + estoque.verificarQuantidade(pfizer) + " doses");
         }
 
-        // 3.3 Terceira aplicacao - Pedro toma Influenza
         System.out.println("\n3.3 APLICACAO 3 - Pedro (Influenza - Dose Unica):");
         AplicacaoVacina aplicacao3 = new AplicacaoVacina(
                 pedro,
@@ -201,10 +180,6 @@ public class Main {
             System.out.println("Aplicacao registrada com sucesso");
             System.out.println("Estoque atual: Influenza - " + estoque.verificarQuantidade(influenza) + " doses");
         }
-
-        // ============================================
-        // 4. HISTORICOS VACINAIS
-        // ============================================
 
         System.out.println("\n4. HISTORICOS VACINAIS");
         System.out.println("----------------------");
@@ -225,14 +200,9 @@ public class Main {
         HistoricoVacinal historicoPedro = pedro.getHistoricoVacinal();
         System.out.println("Total de aplicacoes: " + historicoPedro.getTotalAplicacoes());
 
-        // ============================================
-        // 5. AGENDAMENTOS
-        // ============================================
-
         System.out.println("\n5. AGENDAMENTOS");
         System.out.println("---------------");
 
-        // 5.1 Criando agendamentos
         Agendamento agendamento1 = new Agendamento(
                 LocalDate.now().plusDays(7),
                 LocalTime.of(14, 30),
@@ -258,15 +228,10 @@ public class Main {
         System.out.println("\nAgendamento 2 criado:");
         System.out.println("- Cidadao: " + agendamento2.getCidadao().getNome());
 
-        // 5.2 Alterando status
         agendamento1.setStatus(StatusAgendamento.CONFIRMADO);
         System.out.println("\nAgendamento 1 confirmado!");
         System.out.println("Novo status: " + agendamento1.getStatus());
         System.out.println("Esta ativo? " + agendamento1.getStatus().estaAtivo());
-
-        // ============================================
-        // 6. CAMPANHA DE VACINACAO
-        // ============================================
 
         System.out.println("\n6. CAMPANHA DE VACINACAO");
         System.out.println("------------------------");
@@ -292,14 +257,9 @@ public class Main {
             System.out.println("Erro ao iniciar campanha: " + e.getMessage());
         }
 
-        // ============================================
-        // 7. GERENCIADOR DE VACINAS (DIP)
-        // ============================================
-
         System.out.println("\n7. GERENCIADOR DE VACINAS");
         System.out.println("-------------------------");
 
-        // 7.1 Implementacoes das interfaces
         IRelatorioAplicacoes relatorioImpl = new IRelatorioAplicacoes() {
             @Override
             public String gerarRelatorioTotalAplicadas() {
@@ -329,15 +289,12 @@ public class Main {
             }
         };
 
-        // 7.2 Criando gerenciador
         GerenciadorVacinas gerenciador = new GerenciadorVacinas(relatorioImpl, notificacaoImpl);
 
-        // Cadastrando vacinas
         gerenciador.cadastrarVacina(coronavac);
         gerenciador.cadastrarVacina(pfizer);
         gerenciador.cadastrarVacina(influenza);
 
-        // Adicionando aplicacoes ao gerenciador (sem registrar novamente)
         gerenciador.adicionarAplicacao(aplicacao1);
         gerenciador.adicionarAplicacao(aplicacao2);
         gerenciador.adicionarAplicacao(aplicacao3);
@@ -345,18 +302,12 @@ public class Main {
         System.out.println("Gerenciador configurado com " + gerenciador.getVacinasCadastradas().size() + " vacinas");
         System.out.println("Total de aplicacoes registradas: " + gerenciador.getTotalAplicacoes());
 
-        // 7.3 Gerando relatorio
         System.out.println("\nGerando relatorio:");
         gerenciador.gerarRelatorioAplicacoes();
 
-        // 7.4 Testando notificacoes
         System.out.println("\nTestando notificacoes:");
         notificacaoImpl.notificarEstoqueBaixo(coronavac);
         notificacaoImpl.notificarVacinaProximaValidade(loteCoronavac1);
-
-        // ============================================
-        // 8. TESTES DE VALIDACAO
-        // ============================================
 
         System.out.println("\n8. TESTES DE VALIDACAO");
         System.out.println("----------------------");
@@ -391,10 +342,6 @@ public class Main {
             System.out.println("CORRETO: " + e.getMessage());
         }
 
-        // ============================================
-        // 9. DEMONSTRACAO DOS PRINCIPIOS SOLID
-        // ============================================
-
         System.out.println("\n9. PRINCIPIOS SOLID APLICADOS");
         System.out.println("-----------------------------");
 
@@ -417,10 +364,6 @@ public class Main {
 
         System.out.println("\nDIP (Dependency Inversion Principle):");
         System.out.println("- GerenciadorVacinas depende de interfaces");
-
-        // ============================================
-        // 10. RESUMO FINAL
-        // ============================================
 
         System.out.println("\n============================================");
         System.out.println("RESUMO DO SISTEMA");

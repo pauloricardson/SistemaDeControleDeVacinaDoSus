@@ -7,7 +7,6 @@ import br.gov.sus.scvs.dominio.vacina.Vacina;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-// SRP Aplicado: Agendamento apenas gerencia dados do agendamento
 public class Agendamento {
     private LocalDate dataAgendada;
     private LocalTime horario;
