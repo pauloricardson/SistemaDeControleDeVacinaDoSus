@@ -22,23 +22,23 @@ public class Cidadao implements IHistoricoVacinal {
     }
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public String getCpf() {
-        return cpf;
+        return this.cpf;
     }
 
     public String getDataNascimento() {
-        return dataNascimento;
+        return this.dataNascimento;
     }
 
     public String getEndereco() {
-        return endereco;
+        return this.endereco;
     }
 
     public HistoricoVacinal getHistoricoVacinal() {
-        return historicoVacinal;
+        return this.historicoVacinal;
     }
 
     public void setNome(String nome) {
@@ -68,11 +68,13 @@ public class Cidadao implements IHistoricoVacinal {
 
     @Override
     public void adicionarAplicacao(AplicacaoVacina aplicacao) {
+
         historicoVacinal.adicionarAplicacao(aplicacao);
     }
 
     @Override
     public int obterTotalAplicacoes() {
+
         return historicoVacinal.getTotalAplicacoes();
     }
 }

@@ -7,14 +7,15 @@ import java.util.List;
 
 public class HistoricoVacinal {
 
-    private List<AplicacaoVacina> aplicacoes;
+    private ArrayList<AplicacaoVacina> aplicacoes;
 
     public HistoricoVacinal() {
+
         this.aplicacoes = new ArrayList<>();
     }
 
     public List<AplicacaoVacina> getAplicacoes() {
-        return new ArrayList<>(aplicacoes);
+        return this.aplicacoes;
     }
 
     public int getTotalAplicacoes() {
