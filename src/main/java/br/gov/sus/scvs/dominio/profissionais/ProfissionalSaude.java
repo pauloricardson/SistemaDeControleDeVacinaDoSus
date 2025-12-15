@@ -29,6 +29,12 @@ public abstract class ProfissionalSaude implements IAplicadorVacina {
         this.registro = registro;
     }
 
+    public void setEspecialidade(String especialidade) {
+        if(especialidade == null || especialidade.isEmpty())
+            throw new IllegalArgumentException("Especialidade não pode ser vazio");
+        this.especialidade = especialidade;
+    }
+
     @Override
     public boolean podeAplicarVacina() {
         return true;
