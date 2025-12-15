@@ -9,16 +9,15 @@ public class Cidadao implements IHistoricoVacinal {
     private String endereco;
     private HistoricoVacinal historicoVacinal;
 
-    public Cidadao(String nome, String cpf) {
-        setNome(nome);
-        setCpf(cpf);
-        this.historicoVacinal = new HistoricoVacinal();
+    public Cidadao() {
     }
 
     public Cidadao(String nome, String cpf, String dataNascimento, String endereco) {
-        this(nome, cpf);
+        this.nome = nome;
+        this.cpf = cpf;
         this.dataNascimento = dataNascimento;
         this.endereco = endereco;
+        this.historicoVacinal = new HistoricoVacinal();
     }
 
     public String getNome() {

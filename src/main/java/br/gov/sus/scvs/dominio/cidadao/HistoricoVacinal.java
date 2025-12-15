@@ -34,6 +34,4 @@ public class HistoricoVacinal {
             throw new IllegalArgumentException("Aplicação não pode ser nula");
         aplicacoes.add(app);
     }
-
-
 }
