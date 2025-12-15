@@ -9,36 +9,32 @@ public class Cidadao implements IHistoricoVacinal {
     private String endereco;
     private HistoricoVacinal historicoVacinal;
 
-    public Cidadao(String nome, String cpf) {
+    public Cidadao(String nome, String cpf, String dataNascimento, String endereco) {
         setNome(nome);
         setCpf(cpf);
+        setDataNascimento(dataNascimento);
+        setEndereco(endereco);
         this.historicoVacinal = new HistoricoVacinal();
     }
 
-    public Cidadao(String nome, String cpf, String dataNascimento, String endereco) {
-        this(nome, cpf);
-        this.dataNascimento = dataNascimento;
-        this.endereco = endereco;
-    }
-
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public String getCpf() {
-        return cpf;
+        return this.cpf;
     }
 
     public String getDataNascimento() {
-        return dataNascimento;
+        return this.dataNascimento;
     }
 
     public String getEndereco() {
-        return endereco;
+        return this.endereco;
     }
 
     public HistoricoVacinal getHistoricoVacinal() {
-        return historicoVacinal;
+        return this.historicoVacinal;
     }
 
     public void setNome(String nome) {
@@ -61,7 +57,7 @@ public class Cidadao implements IHistoricoVacinal {
     }
 
     public void setEndereco(String endereco) {
-        if (endereco == null || endereco.trim().isEmpty())
+        if (endereco == null || endereco.isEmpty())
             throw new IllegalArgumentException("Endereço não pode ser vazio");
         this.endereco = endereco;
     }
