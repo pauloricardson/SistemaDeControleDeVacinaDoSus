@@ -8,6 +8,7 @@ public class RelatorioVacinas implements IRelatorioAplicacoes, IRelatorioCobertu
     private List<AplicacaoVacina> aplicacoes;
 
     public RelatorioVacinas(List<AplicacaoVacina> aplicacoes) {
+
         this.aplicacoes = aplicacoes;
     }
 

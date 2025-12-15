@@ -1,8 +1,7 @@
 package br.gov.sus.scvs.relatorios;
 
 public interface IRelatorioAplicacoes {
-    String gerarRelatorioTotalAplicadas();
-    String gerarRelatorioEficaciaVacinal();
-
-    String gerarRelatorioCidadãosNaoVacinados();
+    public String gerarRelatorioTotalAplicadas();
+    public String gerarRelatorioEficaciaVacinal();
+    public String gerarRelatorioCidadãosNaoVacinados();
 }
