@@ -6,9 +6,11 @@ public abstract class UnidadeSaude implements IUnidadeAtendimento {
     private String telefone;
     private boolean aberta;
 
-    public UnidadeSaude(String nome) {
-        setNome(nome);
-        this.aberta = true;
+    public UnidadeSaude(String nome, String endereco, String telefone, boolean aberta) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.aberta = aberta;
     }
 
     public String getNome() { return nome; }

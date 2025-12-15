@@ -3,8 +3,9 @@ package br.gov.sus.scvs.dominio.unidades;
 public class PostoVolante extends UnidadeSaude {
     private String localizacaoAtual;
 
-    public PostoVolante(String nome) {
-        super(nome);
+    public PostoVolante(String nome, String endereco, String telefone, boolean aberta, String localizacaoAtual) {
+        super(nome, endereco, telefone, aberta);
+        this.localizacaoAtual = localizacaoAtual;
     }
 
     public void setLocalizacaoAtual(String localizacao) {
