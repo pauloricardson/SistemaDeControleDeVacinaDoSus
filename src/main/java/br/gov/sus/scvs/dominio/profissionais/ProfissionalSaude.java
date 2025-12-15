@@ -10,9 +10,12 @@ public abstract class ProfissionalSaude implements IAplicadorVacina {
         setRegistro(registro);
     }
 
-    public String getNome() { return nome; }
-    public String getRegistro() { return registro; }
-    public String getEspecialidade() { return especialidade; }
+    public String getNome() {
+        return this.nome;
+    }
+    public String getRegistro() {
+        return this.registro;
+    }
 
     public void setNome(String nome) {
         if (nome == null || nome.isEmpty())
@@ -27,6 +30,8 @@ public abstract class ProfissionalSaude implements IAplicadorVacina {
     }
 
     public void setEspecialidade(String especialidade) {
+        if(especialidade == null || especialidade.isEmpty())
+            throw new IllegalArgumentException("Especialidade não pode ser vazio");
         this.especialidade = especialidade;
     }
 
