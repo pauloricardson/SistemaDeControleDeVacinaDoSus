@@ -4,6 +4,6 @@ import br.gov.sus.scvs.dominio.vacina.LoteVacina;
 import br.gov.sus.scvs.dominio.vacina.Vacina;
 
 public interface INotificacaoEstoque {
-    void notificarVacinaProximaValidade(LoteVacina lote);
-    void notificarEstoqueBaixo(Vacina vacina);
+    public void notificarVacinaProximaValidade(LoteVacina lote);
+    public void notificarEstoqueBaixo(Vacina vacina);
 }

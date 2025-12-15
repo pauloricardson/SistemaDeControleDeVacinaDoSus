@@ -6,6 +6,6 @@ import br.gov.sus.scvs.dominio.vacina.CampanhaVacinacao;
 import java.util.List;
 
 public interface INotificacaoMassa {
-    void notificarAgendamentosEmMassa(List<Agendamento> agendamentos);
-    void notificarCampanhaIniciada(CampanhaVacinacao campanha);
+    public void notificarAgendamentosEmMassa(List<Agendamento> agendamentos);
+    public void notificarCampanhaIniciada(CampanhaVacinacao campanha);
 }
