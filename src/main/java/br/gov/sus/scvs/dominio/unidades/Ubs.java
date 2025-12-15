@@ -1,6 +1,7 @@
 package br.gov.sus.scvs.dominio.unidades;
 
 public class Ubs extends UnidadeSaude {
+
     public Ubs(String nome) {
         super(nome);
     }
