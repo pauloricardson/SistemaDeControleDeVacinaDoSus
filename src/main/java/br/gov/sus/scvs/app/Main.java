@@ -27,7 +27,7 @@ import java.util.List;
 
 public class Main {
 
-//    public static void main(String[] args) {
+    public static void main(String[] args) {
 //        System.out.println("============================================");
 //        System.out.println("SISTEMA DE VACINACAO - INICIALIZANDO");
 //        System.out.println("============================================\n");
@@ -384,5 +384,5 @@ public class Main {
 //        System.out.println("\n============================================");
 //        System.out.println("SISTEMA FINALIZADO COM SUCESSO");
 //        System.out.println("============================================");
-//    }
+   }
 }
