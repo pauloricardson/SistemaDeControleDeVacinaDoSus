@@ -25,57 +25,64 @@ public class Agendamento {
     }
 
     public LocalDate getDataAgendada() {
-        return dataAgendada;
+        return this.dataAgendada;
     }
 
     public LocalTime getHorario() {
-        return horario;
+        return this.horario;
     }
 
     public Cidadao getCidadao() {
-        return cidadao;
+        return this.cidadao;
     }
 
     public Vacina getVacina() {
-        return vacina;
+        return this.vacina;
     }
 
     public UnidadeSaude getUnidade() {
-        return unidade;
+        return this.unidade;
     }
 
     public StatusAgendamento getStatus() {
-        return status;
+        return this.status;
     }
 
     public void setDataAgendada(LocalDate dataAgendada) {
-        if (dataAgendada == null) throw new IllegalArgumentException("Data agendada não pode ser nula");
-        if (dataAgendada.isBefore(LocalDate.now())) throw new IllegalArgumentException("Data agendada não pode ser no passado");
+        if (dataAgendada == null)
+            throw new IllegalArgumentException("Data agendada não pode ser nula");
+        if (dataAgendada.isBefore(LocalDate.now()))
+            throw new IllegalArgumentException("Data agendada não pode ser no passado");
         this.dataAgendada = dataAgendada;
     }
 
     public void setHorario(LocalTime horario) {
-        if (horario == null) throw new IllegalArgumentException("Horário não pode ser nulo");
+        if (horario == null)
+            throw new IllegalArgumentException("Horário não pode ser nulo");
         this.horario = horario;
     }
 
     private void setCidadao(Cidadao cidadao) {
-        if (cidadao == null) throw new IllegalArgumentException("Cidadão não pode ser nulo");
+        if (cidadao == null)
+            throw new IllegalArgumentException("Cidadão não pode ser nulo");
         this.cidadao = cidadao;
     }
 
     public void setVacina(Vacina vacina) {
-        if (vacina == null) throw new IllegalArgumentException("Vacina não pode ser nula");
+        if (vacina == null)
+            throw new IllegalArgumentException("Vacina não pode ser nula");
         this.vacina = vacina;
     }
 
     public void setUnidade(UnidadeSaude unidade) {
-        if (unidade == null) throw new IllegalArgumentException("Unidade de saúde não pode ser nula");
+        if (unidade == null)
+            throw new IllegalArgumentException("Unidade de saúde não pode ser nula");
         this.unidade = unidade;
     }
 
     public void setStatus(StatusAgendamento status) {
-        if (status == null) throw new IllegalArgumentException("Status não pode ser nulo");
+        if (status == null)
+            throw new IllegalArgumentException("Status não pode ser nulo");
         this.status = status;
     }
 }
