@@ -21,7 +21,8 @@ public class GerenciadorVacinas {
     }
 
     public void cadastrarVacina(Vacina vacina) {
-        if (vacina == null) throw new IllegalArgumentException("Vacina não pode ser nula");
+        if (vacina == null)
+            throw new IllegalArgumentException("Vacina não pode ser nula");
         vacinas.add(vacina);
     }
 
@@ -39,6 +40,7 @@ public class GerenciadorVacinas {
     }
 
     public void gerarRelatorioAplicacoes() {
+
         System.out.println(relatorioAplicacoes.gerarRelatorioTotalAplicadas());
     }
 

@@ -31,47 +31,74 @@ public class AplicacaoVacina {
         this.registrada = false;
     }
 
-    public Cidadao getCidadao() { return cidadao; }
-    public Vacina getVacina() { return vacina; }
-    public int getDose() { return dose; }
-    public LoteVacina getLote() { return lote; }
-    public ProfissionalSaude getProfissional() { return profissional; }
-    public UnidadeSaude getUnidade() { return unidade; }
-    public LocalDateTime getDataHoraAplicacao() { return dataHoraAplicacao; }
-    public boolean isRegistrada() { return registrada; }
+    public Cidadao getCidadao() {
+        return this.cidadao;
+    }
+    public Vacina getVacina() {
+        return this.vacina;
+    }
+    public int getDose() {
+        return this.dose;
+    }
+    public LoteVacina getLote() {
+        return this.lote;
+    }
+    public ProfissionalSaude getProfissional() {
+        return this.profissional;
+    }
+    public UnidadeSaude getUnidade() {
+        return this.unidade;
+    }
+    public LocalDateTime getDataHoraAplicacao() {
+        return this.dataHoraAplicacao;
+    }
+    public boolean isRegistrada() {
+        return this.registrada;
+    }
 
     private void setCidadao(Cidadao cidadao) {
-        if (cidadao == null) throw new IllegalArgumentException("Cidadão não pode ser nulo");
+        if (cidadao == null)
+            throw new IllegalArgumentException("Cidadão não pode ser nulo");
         this.cidadao = cidadao;
     }
 
     private void setVacina(Vacina vacina) {
-        if (vacina == null) throw new IllegalArgumentException("Vacina não pode ser nula");
-        if (!vacina.isValidaParaAplicacao()) throw new IllegalArgumentException("Vacina não está ativa para aplicação");
+        if (vacina == null)
+            throw new IllegalArgumentException("Vacina não pode ser nula");
+        if (!vacina.isValidaParaAplicacao())
+            throw new IllegalArgumentException("Vacina não está ativa para aplicação");
         this.vacina = vacina;
     }
 
     private void setDose(int dose) {
-        if (dose <= 0) throw new IllegalArgumentException("Dose deve ser maior que zero");
+        if (dose <= 0)
+            throw new IllegalArgumentException("Dose deve ser maior que zero");
         this.dose = dose;
     }
 
     private void setLote(LoteVacina lote) {
-        if (lote == null) throw new IllegalArgumentException("Lote não pode ser nulo");
-        if (lote.isExpirado()) throw new IllegalArgumentException("Lote expirado não pode ser usado");
-        if (lote.getQuantidade() <= 0) throw new IllegalArgumentException("Lote sem estoque disponível");
+        if (lote == null)
+            throw new IllegalArgumentException("Lote não pode ser nulo");
+        if (lote.isExpirado())
+            throw new IllegalArgumentException("Lote expirado não pode ser usado");
+        if (lote.getQuantidade() <= 0)
+            throw new IllegalArgumentException("Lote sem estoque disponível");
         this.lote = lote;
     }
 
     private void setProfissional(ProfissionalSaude profissional) {
-        if (profissional == null) throw new IllegalArgumentException("Profissional não pode ser nulo");
-        if (!profissional.podeAplicarVacina()) throw new IllegalArgumentException("Profissional não pode aplicar vacina");
+        if (profissional == null)
+            throw new IllegalArgumentException("Profissional não pode ser nulo");
+        if (!profissional.podeAplicarVacina())
+            throw new IllegalArgumentException("Profissional não pode aplicar vacina");
         this.profissional = profissional;
     }
 
     private void setUnidade(UnidadeSaude unidade) {
-        if (unidade == null) throw new IllegalArgumentException("Unidade não pode ser nula");
-        if (!unidade.estaAberta()) throw new IllegalArgumentException("Unidade está fechada");
+        if (unidade == null)
+            throw new IllegalArgumentException("Unidade não pode ser nula");
+        if (!unidade.estaAberta())
+            throw new IllegalArgumentException("Unidade está fechada");
         this.unidade = unidade;
     }
 
