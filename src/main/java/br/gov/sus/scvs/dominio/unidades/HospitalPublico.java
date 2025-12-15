@@ -9,10 +9,12 @@ public class HospitalPublico extends UnidadeSaude {
     }
 
     public int getLeitosDisponiveis() {
-        return leitosDisponiveis;
+        return this.leitosDisponiveis;
     }
 
     public void setLeitosDisponiveis(int leitosDisponiveis) {
+        if (leitosDisponiveis > 0)
+            throw new IllegalStateException("Número de leitos disponíveis não pode ser negativo.");
         this.leitosDisponiveis = leitosDisponiveis;
     }
 
