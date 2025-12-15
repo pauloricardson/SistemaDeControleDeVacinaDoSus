@@ -48,7 +48,6 @@ public class EstoqueVacinas implements IEstoqueManager {
     }
 
     public List<LoteVacina> listarLotesProximosVencer(int diasAntecedencia) {
-        // Implementação que verifica lotes próximos a vencer
         return new ArrayList<>();
     }
 }

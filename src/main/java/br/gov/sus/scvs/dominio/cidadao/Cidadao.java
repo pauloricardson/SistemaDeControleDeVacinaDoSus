@@ -61,7 +61,7 @@ public class Cidadao implements IHistoricoVacinal {
     }
 
     public void setEndereco(String endereco) {
-        if (endereco == null || endereco.trim().isEmpty())
+        if (endereco == null || endereco.isEmpty())
             throw new IllegalArgumentException("Endereço não pode ser vazio");
         this.endereco = endereco;
     }

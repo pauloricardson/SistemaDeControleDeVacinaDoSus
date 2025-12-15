@@ -19,7 +19,7 @@ public class HistoricoVacinal {
     }
 
     public List<AplicacaoVacina> getAplicacoes() {
-        return new ArrayList<>(aplicacoes); // Retorna cópia para encapsulamento
+        return new ArrayList<>(aplicacoes);
     }
 
     public int getTotalAplicacoes() {

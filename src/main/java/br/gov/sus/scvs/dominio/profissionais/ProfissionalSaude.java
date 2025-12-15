@@ -32,6 +32,6 @@ public abstract class ProfissionalSaude implements IAplicadorVacina {
 
     @Override
     public boolean podeAplicarVacina() {
-        return true; // Implementação padrão, pode ser sobrescrita
+        return true;
     }
 }
