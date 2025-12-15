@@ -18,11 +18,21 @@ public class LoteVacina {
         setQuantidade(quantidade);
     }
 
-    public String getNumeroLote() { return numeroLote; }
-    public Vacina getVacina() { return vacina; }
-    public int getQuantidade() { return quantidade; }
-    public LocalDate getDataFabricacao() { return dataFabricacao; }
-    public LocalDate getDataValidade() { return dataValidade; }
+    public String getNumeroLote() {
+        return this.numeroLote;
+    }
+    public Vacina getVacina() {
+        return this.vacina;
+    }
+    public int getQuantidade() {
+        return this.quantidade;
+    }
+    public LocalDate getDataFabricacao() {
+        return this.dataFabricacao;
+    }
+    public LocalDate getDataValidade() {
+        return this.dataValidade;
+    }
 
     public void setNumeroLote(String numeroLote) {
         if (numeroLote == null || numeroLote.isEmpty())
@@ -41,20 +51,23 @@ public class LoteVacina {
     }
 
     public void setDataFabricacao(LocalDate dataFabricacao) {
-        if (dataFabricacao == null) throw new IllegalArgumentException("Data fabricação não pode ser nula");
+        if (dataFabricacao == null)
+            throw new IllegalArgumentException("Data fabricação não pode ser nula");
         if (dataFabricacao.isAfter(LocalDate.now()))
             throw new IllegalArgumentException("Data fabricação não pode ser futura");
         this.dataFabricacao = dataFabricacao;
     }
 
     public void setDataValidade(LocalDate dataValidade) {
-        if (dataValidade == null) throw new IllegalArgumentException("Data validade não pode ser nula");
+        if (dataValidade == null)
+            throw new IllegalArgumentException("Data validade não pode ser nula");
         if (dataFabricacao != null && dataValidade.isBefore(dataFabricacao))
             throw new IllegalArgumentException("Data validade deve ser após fabricação");
         this.dataValidade = dataValidade;
     }
 
     public boolean isExpirado() {
+
         return LocalDate.now().isAfter(dataValidade);
     }
 

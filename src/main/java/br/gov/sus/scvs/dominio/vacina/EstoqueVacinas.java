@@ -10,13 +10,16 @@ public class EstoqueVacinas implements IEstoqueManager {
     private Map<Vacina, Integer> estoque;
 
     public EstoqueVacinas() {
+
         this.estoque = new HashMap<>();
     }
 
     @Override
     public void adicionarLote(LoteVacina lote) {
-        if (lote == null) throw new IllegalArgumentException("Lote não pode ser nulo");
-        if (lote.isExpirado()) throw new IllegalArgumentException("Lote expirado não pode ser adicionado");
+        if (lote == null)
+            throw new IllegalArgumentException("Lote não pode ser nulo");
+        if (lote.isExpirado())
+            throw new IllegalArgumentException("Lote expirado não pode ser adicionado");
 
         estoque.put(lote.getVacina(),
                 estoque.getOrDefault(lote.getVacina(), 0) + lote.getQuantidade());
@@ -24,8 +27,10 @@ public class EstoqueVacinas implements IEstoqueManager {
 
     @Override
     public void removerVacina(Vacina vacina, int quantidade) {
-        if (vacina == null) throw new IllegalArgumentException("Vacina não pode ser nula");
-        if (quantidade <= 0) throw new IllegalArgumentException("Quantidade deve ser positiva");
+        if (vacina == null)
+            throw new IllegalArgumentException("Vacina não pode ser nula");
+        if (quantidade <= 0)
+            throw new IllegalArgumentException("Quantidade deve ser positiva");
 
         int estoqueAtual = estoque.getOrDefault(vacina, 0);
         if (estoqueAtual < quantidade) {
@@ -36,6 +41,7 @@ public class EstoqueVacinas implements IEstoqueManager {
 
     @Override
     public int verificarQuantidade(Vacina vacina) {
+
         return estoque.getOrDefault(vacina, 0);
     }
 

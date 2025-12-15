@@ -9,16 +9,26 @@ public class Vacina implements IVacinaValidador {
 
     public Vacina(String nome, String fabricante, int dosesNecessarias) {
         setNome(nome);
-        this.fabricante = fabricante;
+        setFabricante(fabricante);
         setDosesNecessarias(dosesNecessarias);
         this.ativa = true;
     }
 
-    public String getNome() { return nome; }
-    public String getFabricante() { return fabricante; }
-    public String getIndicacao() { return indicacao; }
-    public int getDosesNecessarias() { return dosesNecessarias; }
-    public boolean isAtiva() { return ativa; }
+    public String getNome() {
+        return this.nome;
+    }
+    public String getFabricante() {
+        return this.fabricante;
+    }
+    public String getIndicacao() {
+        return this.indicacao;
+    }
+    public int getDosesNecessarias() {
+        return this.dosesNecessarias;
+    }
+    public boolean isAtiva() {
+        return this.ativa;
+    }
 
     public void setNome(String nome) {
         if (nome == null || nome.isEmpty())
@@ -26,16 +36,31 @@ public class Vacina implements IVacinaValidador {
         this.nome = nome;
     }
 
+    public void setFabricante(String fabricante) {
+        if(fabricante == null)
+            throw new IllegalArgumentException("Nome do fabricante não pode ser vazio");
+        this.fabricante = fabricante;
+    }
+
+    public void setIndicacao(String indicacao) {
+        if(indicacao == null)
+            throw new IllegalArgumentException("Nome da indicação não pode ser vazio");
+        this.indicacao = indicacao;
+    }
+
     public void setDosesNecessarias(int doses) {
-        if (doses <= 0) throw new IllegalArgumentException("Doses necessárias deve ser maior que zero");
+        if (doses <= 0)
+            throw new IllegalArgumentException("Doses necessárias deve ser maior que zero");
         this.dosesNecessarias = doses;
     }
 
-    public void setIndicacao(String indicacao) { this.indicacao = indicacao; }
-    public void setAtiva(boolean ativa) { this.ativa = ativa; }
+
+    public void setAtiva(boolean ativa) {
+        this.ativa = ativa;
+    }
 
     @Override
     public boolean isValidaParaAplicacao() {
-        return ativa && dosesNecessarias > 0;
+        return this.ativa && this.dosesNecessarias > 0;
     }
 }
