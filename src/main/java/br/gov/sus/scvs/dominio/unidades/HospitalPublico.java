@@ -8,6 +8,14 @@ public class HospitalPublico extends UnidadeSaude {
         this.leitosDisponiveis = leitosDisponiveis;
     }
 
+    public int getLeitosDisponiveis() {
+        return leitosDisponiveis;
+    }
+
+    public void setLeitosDisponiveis(int leitosDisponiveis) {
+        this.leitosDisponiveis = leitosDisponiveis;
+    }
+
     @Override
     public void realizarAtendimento() {
         if (!estaAberta()) {
