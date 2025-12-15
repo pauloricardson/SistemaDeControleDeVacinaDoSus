@@ -51,9 +51,4 @@ public class Cidadao implements IHistoricoVacinal {
     public int obterTotalAplicacoes() {
         return 0;
     }
-
-    @Override
-    public int getTotalAplicacoes() {
-        return historicoVacinal.getTotalAplicacoes();
-    }
 }
