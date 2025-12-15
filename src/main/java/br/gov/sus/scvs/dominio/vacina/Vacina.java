@@ -21,7 +21,7 @@ public class Vacina implements IVacinaValidador {
     public boolean isAtiva() { return ativa; }
 
     public void setNome(String nome) {
-        if (nome == null || nome.trim().isEmpty())
+        if (nome == null || nome.isEmpty())
             throw new IllegalArgumentException("Nome da vacina não pode ser vazio");
         this.nome = nome;
     }

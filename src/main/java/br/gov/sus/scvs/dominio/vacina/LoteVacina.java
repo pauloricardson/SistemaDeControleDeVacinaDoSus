@@ -25,7 +25,7 @@ public class LoteVacina {
     public LocalDate getDataValidade() { return dataValidade; }
 
     public void setNumeroLote(String numeroLote) {
-        if (numeroLote == null || numeroLote.trim().isEmpty())
+        if (numeroLote == null || numeroLote.isEmpty())
             throw new IllegalArgumentException("Número do lote não pode ser vazio");
         this.numeroLote = numeroLote;
     }

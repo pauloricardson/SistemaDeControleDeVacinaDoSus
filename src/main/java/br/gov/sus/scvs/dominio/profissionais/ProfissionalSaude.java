@@ -15,13 +15,13 @@ public abstract class ProfissionalSaude implements IAplicadorVacina {
     public String getEspecialidade() { return especialidade; }
 
     public void setNome(String nome) {
-        if (nome == null || nome.trim().isEmpty())
+        if (nome == null || nome.isEmpty())
             throw new IllegalArgumentException("Nome não pode ser vazio");
         this.nome = nome;
     }
 
     public void setRegistro(String registro) {
-        if (registro == null || registro.trim().isEmpty())
+        if (registro == null || registro.isEmpty())
             throw new IllegalArgumentException("Registro não pode ser vazio");
         this.registro = registro;
     }

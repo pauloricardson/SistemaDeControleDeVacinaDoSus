@@ -35,13 +35,13 @@ public class CampanhaVacinacao {
     public List<UnidadeSaude> getUnidades() { return new ArrayList<>(unidades); }
 
     private void setNome(String nome) {
-        if (nome == null || nome.trim().isEmpty())
+        if (nome == null || nome.isEmpty())
             throw new IllegalArgumentException("Nome da campanha não pode ser vazio");
         this.nome = nome;
     }
 
     private void setPublicoAlvo(String publicoAlvo) {
-        if (publicoAlvo == null || publicoAlvo.trim().isEmpty())
+        if (publicoAlvo == null || publicoAlvo.isEmpty())
             throw new IllegalArgumentException("Público alvo não pode ser vazio");
         this.publicoAlvo = publicoAlvo;
     }

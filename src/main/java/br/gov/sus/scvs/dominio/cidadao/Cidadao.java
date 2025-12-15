@@ -30,7 +30,7 @@ public class Cidadao implements IHistoricoVacinal {
 
     // Setters com validação
     public void setNome(String nome) {
-        if (nome == null || nome.trim().isEmpty())
+        if (nome == null || nome.isEmpty())
             throw new IllegalArgumentException("Nome não pode ser vazio");
         this.nome = nome;
     }
