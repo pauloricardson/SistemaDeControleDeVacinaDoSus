@@ -11,12 +11,20 @@ public abstract class UnidadeSaude implements IUnidadeAtendimento {
         this.aberta = true;
     }
 
-    public String getNome() { return nome; }
-    public String getEndereco() { return endereco; }
-    public String getTelefone() { return telefone; }
+    public String getNome() {
+        return this.nome;
+    }
+    public String getEndereco() {
+        return this.endereco;
+    }
+    public String getTelefone() {
+        return this.telefone;
+    }
 
     @Override
-    public boolean estaAberta() { return aberta; }
+    public boolean estaAberta() {
+        return this.aberta;
+    }
 
     public void setNome(String nome) {
         if (nome == null || nome.isEmpty())
@@ -24,7 +32,14 @@ public abstract class UnidadeSaude implements IUnidadeAtendimento {
         this.nome = nome;
     }
 
-    public void setEndereco(String endereco) { this.endereco = endereco; }
-    public void setTelefone(String telefone) { this.telefone = telefone; }
-    public void setAberta(boolean aberta) { this.aberta = aberta; }
+    public void setEndereco(String endereco) {
+        if(endereco == null || endereco.isEmpty())
+            throw new IllegalArgumentException("Endereço não pode ser vazio");
+        this.endereco = endereco;
+    }
+    public void setTelefone(String telefone) {
+        if (telefone == null || telefone.isEmpty())
+            throw new IllegalArgumentException("Telefone não pode ser vazio");
+        this.telefone = telefone;
+    }
 }
