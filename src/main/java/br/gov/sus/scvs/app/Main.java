@@ -36,9 +36,6 @@ public class Main {
         TecnicoEnfermagem mariana = new TecnicoEnfermagem("Mariana Rafela", "COREN-2541", true);
         Enfermeiro jaqueline = new Enfermeiro("Jaqueline Miranda", "COREN-665520");
 
-        IAplicadorVacina medico1 = new Medico("Paulo Ricardson", "CRM-253554");
-        medico1.podeAplicarVacina();
-
         // Criando nossas unidades de saúde
         Ubs ubsMulungu = new Ubs("UBS Comunidade do Mulungu", "Sítio Mulungu, Quixelô-CE", "8835817745", true);
         PostoVolante postoVolante = new PostoVolante("Posto Volante Capital do Centro-Sul vulgo Iguatu", "R. Dr. Agenor Araujo, 135 - Iguatu/CE", "8835815567", true, "Praça das Crianças");
@@ -63,6 +60,10 @@ public class Main {
         // Criando as aplicações de vacina
         AplicacaoVacina aplicacao1 = new AplicacaoVacina(eduarda, coronavac, 1, loteCoronavac, mariana, ubsMulungu);
         AplicacaoVacina aplicacao2 = new AplicacaoVacina(roberta, gripe, 1, loteGripe, mariana, postoVolante);
+
+        IAplicadorVacina medico1 = new Medico("Paulo Ricardson", "CRM-253554");
+        medico1.podeAplicarVacina();
+        medico1.aplicarVacina(aplicacao1);
 
         todasAplicacoes.add(aplicacao1);
         todasAplicacoes.add(aplicacao2);
