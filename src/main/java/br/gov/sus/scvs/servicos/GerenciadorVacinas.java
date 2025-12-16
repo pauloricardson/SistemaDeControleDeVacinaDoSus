@@ -20,11 +20,28 @@ public class GerenciadorVacinas {
         this.notificacaoEstoque = notificacaoEstoque;
     }
 
+    public List<Vacina> getVacinas() {
+        return vacinas;
+    }
+
+    public IRelatorioAplicacoes getRelatorioAplicacoes() {
+        return relatorioAplicacoes;
+    }
+
+    public INotificacaoEstoque getNotificacaoEstoque() {
+        return notificacaoEstoque;
+    }
+
+    public List<AplicacaoVacina> getAplicacoes() {
+        return aplicacoes;
+    }
+
     public void cadastrarVacina(Vacina vacina) {
         if (vacina == null)
             throw new IllegalArgumentException("Vacina não pode ser nula");
         vacinas.add(vacina);
     }
+
 
     public void adicionarAplicacao(AplicacaoVacina aplicacao) {
         if (aplicacao == null) {
@@ -48,7 +65,4 @@ public class GerenciadorVacinas {
         return new ArrayList<>(vacinas);
     }
 
-    public int getTotalAplicacoes() {
-        return aplicacoes.size();
-    }
 }

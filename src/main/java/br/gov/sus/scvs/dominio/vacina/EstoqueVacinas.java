@@ -23,10 +23,8 @@ public class EstoqueVacinas implements IEstoqueManager {
 
     @Override
     public void removerVacina(Vacina vacina, int quantidade) {
-        if (vacina == null)
-            throw new IllegalArgumentException("Vacina não pode ser nula");
-        if (quantidade <= 0)
-            throw new IllegalArgumentException("Quantidade deve ser positiva");
+        if (vacina == null || quantidade <= 0)
+            throw new IllegalArgumentException("Vacina não pode ser nula e Quantidade deve ser positiva");
 
         int estoqueAtual = verificarQuantidade(vacina);
         if (estoqueAtual < quantidade) {

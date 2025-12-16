@@ -18,9 +18,7 @@ public class AplicacaoVacina {
     private UnidadeSaude unidade;
     private boolean registrada;
 
-    public AplicacaoVacina(Cidadao cidadao, Vacina vacina, int dose,
-                           LoteVacina lote, ProfissionalSaude profissional,
-                           UnidadeSaude unidade) {
+    public AplicacaoVacina(Cidadao cidadao, Vacina vacina, int dose, LoteVacina lote, ProfissionalSaude profissional, UnidadeSaude unidade) {
         setCidadao(cidadao);
         setVacina(vacina);
         setDose(dose);
@@ -29,6 +27,7 @@ public class AplicacaoVacina {
         setUnidade(unidade);
         this.dataHoraAplicacao = LocalDateTime.now();
         this.registrada = false;
+        registrar();
     }
 
     public Cidadao getCidadao() {
@@ -56,49 +55,39 @@ public class AplicacaoVacina {
         return this.registrada;
     }
 
-    private void setCidadao(Cidadao cidadao) {
+    public void setCidadao(Cidadao cidadao) {
         if (cidadao == null)
             throw new IllegalArgumentException("Cidadão não pode ser nulo");
         this.cidadao = cidadao;
     }
 
-    private void setVacina(Vacina vacina) {
+    public void setVacina(Vacina vacina) {
         if (vacina == null)
             throw new IllegalArgumentException("Vacina não pode ser nula");
-        if (!vacina.isValidaParaAplicacao())
-            throw new IllegalArgumentException("Vacina não está ativa para aplicação");
         this.vacina = vacina;
     }
 
-    private void setDose(int dose) {
+    public void setDose(int dose) {
         if (dose <= 0)
-            throw new IllegalArgumentException("Dose deve ser maior que zero");
+            throw new IllegalArgumentException("Dose não pode ser vazia");
         this.dose = dose;
     }
 
-    private void setLote(LoteVacina lote) {
+    public void setLote(LoteVacina lote) {
         if (lote == null)
             throw new IllegalArgumentException("Lote não pode ser nulo");
-        if (lote.isExpirado())
-            throw new IllegalArgumentException("Lote expirado não pode ser usado");
-        if (lote.getQuantidade() <= 0)
-            throw new IllegalArgumentException("Lote sem estoque disponível");
         this.lote = lote;
     }
 
-    private void setProfissional(ProfissionalSaude profissional) {
+    public void setProfissional(ProfissionalSaude profissional) {
         if (profissional == null)
             throw new IllegalArgumentException("Profissional não pode ser nulo");
-        if (!profissional.podeAplicarVacina())
-            throw new IllegalArgumentException("Profissional não pode aplicar vacina");
         this.profissional = profissional;
     }
 
-    private void setUnidade(UnidadeSaude unidade) {
+    public void setUnidade(UnidadeSaude unidade) {
         if (unidade == null)
             throw new IllegalArgumentException("Unidade não pode ser nula");
-        if (!unidade.estaAberta())
-            throw new IllegalArgumentException("Unidade está fechada");
         this.unidade = unidade;
     }
 
@@ -111,17 +100,6 @@ public class AplicacaoVacina {
         cidadao.adicionarAplicacao(this);
         registrada = true;
 
-        System.out.println("Aplicação registrada: " + vacina.getNome() +
-                " - Dose " + dose + " - Cidadão: " + cidadao.getNome());
-    }
-    public boolean podeSerRegistrada() {
-        return !registrada &&
-                cidadao != null &&
-                vacina != null &&
-                vacina.isValidaParaAplicacao() &&
-                profissional != null &&
-                profissional.podeAplicarVacina() &&
-                unidade != null &&
-                unidade.estaAberta();
+        System.out.println("Aplicação registrada: " + vacina.getNome() + " - Dose " + dose + " - Cidadão: " + cidadao.getNome());
     }
 }

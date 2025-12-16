@@ -22,16 +22,10 @@ public class HistoricoVacinal {
         return aplicacoes.size();
     }
 
-    public boolean possuiVacinaCompleta(String nomeVacina, int dosesNecessarias) {
-        long count = aplicacoes.stream()
-                .filter(a -> a.getVacina().getNome().equals(nomeVacina))
-                .count();
-        return count >= dosesNecessarias;
-    }
-
     public void adicionarAplicacao(AplicacaoVacina app) {
         if (app == null)
             throw new IllegalArgumentException("Aplicação não pode ser nula");
         aplicacoes.add(app);
+        System.out.println("Adicionado ao Histórico");
     }
 }
